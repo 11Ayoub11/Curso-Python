@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UFT-8">
+        <title>Actividad 3</title>
+
+        <script>
+            // Función para mostrar el mensaje de despedida.
+            function escribirDespedida() {
+                var mensaje = document.getElementById("despedida");
+                
+                alert("Hasta la pr´xima visitante");
+            }
+
+            // Función para mostrar la hora actual en una ventana emergente.
+            function mostrarHoraActual() {
+                var fecha = new Date();
+                var horas = fecha.getHours();
+                var minutos = fecha.getMinutes();
+
+                // Añadimos un cero delante si los minutos son menores que 10.
+                var minutosTexto = minutos < 10 ? "0" + minutos : minutos;
+
+                alert("Son las " + horas + " hora y " +
+                    minutosTexto + "minutos");
+            }
+
+            // Motrar la hora a la que se carga la página.
+            window.onload = function() {
+                var fechaCarga = new Date();
+                var horas = fechaCarga.getHours();
+                var minutos = fechaCarga.getMinutes();
+
+                var minutosTexto = minutos < 10 ? "0" + minutos : minutos;
+
+                document.getElementById("horaCarga").textContent =
+                    "La página web se ha cargado a las " + 
+                    horas + " horas y " + minutosTexto + "minutos.";
+            };
+        </script>
+    </head>  
+
+    <body>
+        <h1>Actividad 3</h1>
+
+        <!-- b) Aquí se mostrará la hora de carga de la página. -->
+        <p id="horaCarga">Cargando la hora...</p>
+
+        <!-- e) Botón para ejecutar la función de despedida. -->
+        <button type="button" onclink="escribirDespedida()">
+            Salir
+        </button>
+
+        <p id="despedida"></p>
+
+        <!-- g) Botón para mostrar la hora actuL. -->
+        <button type="button" onclick="mostrarHoraActual()">
+            ¿Qué hora es?
+        </button>
+    </body>
+</html>
